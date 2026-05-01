@@ -9,6 +9,7 @@ import { paymentRoutes } from "../modules/payments/payment.route.js";
 import { reviewRoutes } from "../modules/reviews/review.route.js";
 import { dashboardRoutes } from "../modules/dashboard/dashboard.route.js";
 import { aiRoutes } from "../modules/ai-agent/ai.route.js";
+import { wishlistRoutes } from "../modules/wishlist/wishlist.route.js";
 
 const router = Router();
 
@@ -22,5 +23,6 @@ router.use("/payments", paymentRoutes);
 router.use("/reviews", reviewRoutes);
 router.use("/dashboard", dashboardRoutes);
 router.use("/ai", aiRoutes);
+router.use("/wishlist", wishlistRoutes);
 
 export default router;
