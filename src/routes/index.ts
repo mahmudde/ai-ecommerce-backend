@@ -12,6 +12,7 @@ import { aiRoutes } from "../modules/ai-agent/ai.route.js";
 import { wishlistRoutes } from "../modules/wishlist/wishlist.route.js";
 import { supportRoutes } from "../modules/support/support.route.js";
 import { newsletterRoutes } from "../modules/newsletter/newsletter.route.js";
+import { blogRoutes } from "../modules/blogs/blog.route.js";
 
 const router = Router();
 
@@ -28,5 +29,7 @@ router.use("/ai", aiRoutes);
 router.use("/wishlist", wishlistRoutes);
 router.use("/support", supportRoutes);
 router.use("/newsletter", newsletterRoutes);
+router.use("/blogs", blogRoutes);
+
 
 export default router;
