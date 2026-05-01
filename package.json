@@ -1,0 +1,57 @@
+{
+  "name": "ai-ecommerce-backend",
+  "version": "1.0.0",
+  "description": "Production-ready AI-powered e-commerce marketplace backend",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "seed": "tsx prisma/seed.ts"
+  },
+  "keywords": [
+    "ecommerce",
+    "typescript",
+    "express",
+    "prisma",
+    "better-auth",
+    "stripe",
+    "cloudinary",
+    "ai-agent"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "latest",
+    "@types/pg": "^8.20.0",
+    "better-auth": "latest",
+    "cloudinary": "latest",
+    "cookie-parser": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "helmet": "latest",
+    "morgan": "latest",
+    "multer": "latest",
+    "pg": "^8.20.0",
+    "stripe": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "latest",
+    "@types/cors": "latest",
+    "@types/express": "latest",
+    "@types/morgan": "latest",
+    "@types/multer": "latest",
+    "@types/node": "latest",
+    "nodemon": "latest",
+    "prisma": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

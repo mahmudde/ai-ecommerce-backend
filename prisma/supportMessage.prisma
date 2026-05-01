@@ -1,0 +1,9 @@
+model SupportMessage {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  subject    String
+  message    String
+  isResolved Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}

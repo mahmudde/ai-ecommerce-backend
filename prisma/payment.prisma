@@ -1,0 +1,13 @@
+model Payment {
+  id                String        @id @default(cuid())
+  orderId           String        @unique
+  provider          String        @default("stripe")
+  providerPaymentId String?
+  amount            Decimal       @db.Decimal(10, 2)
+  currency          String        @default("usd")
+  status            PaymentStatus @default(UNPAID)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  order             Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}

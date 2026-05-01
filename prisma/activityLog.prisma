@@ -1,0 +1,17 @@
+model ActivityLog {
+  id          String       @id @default(cuid())
+  type        ActivityType
+  userId      String?
+  productId   String?
+  searchQuery String?
+  metadata    Json?
+  createdAt   DateTime     @default(now())
+
+  user        User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
+  product     Product?     @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([productId])
+  @@index([type])
+  @@index([createdAt])
+}
