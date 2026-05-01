@@ -11,6 +11,7 @@ import { dashboardRoutes } from "../modules/dashboard/dashboard.route.js";
 import { aiRoutes } from "../modules/ai-agent/ai.route.js";
 import { wishlistRoutes } from "../modules/wishlist/wishlist.route.js";
 import { supportRoutes } from "../modules/support/support.route.js";
+import { newsletterRoutes } from "../modules/newsletter/newsletter.route.js";
 
 const router = Router();
 
@@ -26,5 +27,6 @@ router.use("/dashboard", dashboardRoutes);
 router.use("/ai", aiRoutes);
 router.use("/wishlist", wishlistRoutes);
 router.use("/support", supportRoutes);
+router.use("/newsletter", newsletterRoutes);
 
 export default router;
