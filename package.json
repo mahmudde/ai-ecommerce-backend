@@ -13,7 +13,7 @@
     "prisma:studio": "prisma studio",
     "seed": "tsx prisma/seed.ts"
   },
-   "prisma": {
+  "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "keywords": [
@@ -42,6 +42,7 @@
     "helmet": "latest",
     "morgan": "latest",
     "multer": "latest",
+    "openai": "^6.35.0",
     "pg": "^8.20.0",
     "stripe": "latest",
     "zod": "latest"
