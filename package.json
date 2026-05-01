@@ -7,9 +7,11 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node dist/src/server.js",
+    "postinstall": "prisma generate",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
     "prisma:studio": "prisma studio",
     "seed": "tsx prisma/seed.ts"
   },
@@ -35,10 +37,12 @@
     "@types/pg": "^8.20.0",
     "better-auth": "latest",
     "cloudinary": "latest",
+    "compression": "^1.8.1",
     "cookie-parser": "latest",
     "cors": "latest",
     "dotenv": "latest",
     "express": "latest",
+    "express-rate-limit": "^8.4.1",
     "helmet": "latest",
     "morgan": "latest",
     "multer": "latest",
@@ -48,6 +52,7 @@
     "zod": "latest"
   },
   "devDependencies": {
+    "@types/compression": "^1.8.1",
     "@types/cookie-parser": "latest",
     "@types/cors": "latest",
     "@types/express": "latest",

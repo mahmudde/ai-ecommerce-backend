@@ -9,7 +9,11 @@ import {
   searchSuggestionQuerySchema,
 } from "./ai.validation.js";
 
+import { aiRateLimiter } from "../../middlewares/rate-limit.middleware.js";
+
 const router = Router();
+
+router.use(aiRateLimiter);
 
 router.post(
   "/chat",
