@@ -19,13 +19,32 @@ import {
 
 const app = express();
 
+const allowedOrigins = new Set([
+  env.CLIENT_URL?.replace(/\/$/, ""),
+  "http://localhost:3000",
+  "https://nexacart-ai-frontend.vercel.app",
+]);
+
 app.use(
   cors({
-    origin: env.CLIENT_URL,
+    origin: (origin, callback) => {
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      const normalizedOrigin = origin.replace(/\/$/, "");
+
+      if (allowedOrigins.has(normalizedOrigin)) {
+        return callback(null, true);
+      }
+
+      console.log("CORS blocked origin:", normalizedOrigin);
+      return callback(null, false);
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  })
+  }),
 );
 
 app.use(
@@ -33,7 +52,7 @@ app.use(
     crossOriginResourcePolicy: {
       policy: "cross-origin",
     },
-  })
+  }),
 );
 
 app.use(compression());
@@ -54,7 +73,7 @@ app.all("/api/auth/*splat", authRateLimiter, toNodeHandler(auth));
 app.post(
   "/api/payments/webhook",
   express.raw({ type: "application/json" }),
-  paymentController.stripeWebhook
+  paymentController.stripeWebhook,
 );
 
 app.use(express.json({ limit: "10mb" }));

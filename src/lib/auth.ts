@@ -7,18 +7,20 @@ export const auth = betterAuth({
   baseURL: env.BETTER_AUTH_URL,
   secret: env.BETTER_AUTH_SECRET,
 
-   trustedOrigins: [
+  trustedOrigins: [
     env.CLIENT_URL,
-    env.SERVER_URL,
     "http://localhost:3000",
-    "http://localhost:5000",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:5000",
+    "https://nexacart-ai-frontend.vercel.app",
   ],
 
   advanced: {
-  disableCSRFCheck: env.NODE_ENV === "development",
-},
+    defaultCookieAttributes: {
+      sameSite: "none",
+      secure: true,
+      httpOnly: true,
+      path: "/",
+    },
+  },
 
   database: prismaAdapter(prisma, {
     provider: "postgresql",
