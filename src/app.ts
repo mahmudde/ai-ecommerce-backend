@@ -60,6 +60,24 @@ app.post(
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (_req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Welcome to the AI E-Commerce API",
+    version: "1.0.0",
+    docs: "/api/health",
+    endpoints: {
+      health: "/api/health",
+      auth: "/api/auth",
+      products: "/api/products",
+      orders: "/api/orders",
+      cart: "/api/cart",
+      payments: "/api/payments",
+      ai: "/api/ai",
+    },
+  });
+});
+
 app.get("/api/health", (_req, res) => {
   res.status(200).json({
     success: true,
