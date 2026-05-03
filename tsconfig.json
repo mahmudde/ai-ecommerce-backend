@@ -12,7 +12,7 @@
     "resolveJsonModule": true,
     "types": ["node", "express"]
   },
-  "include": ["src/**/*.ts", "prisma/seed.ts"],
+  "include": ["src/**/*.ts", "api/**/*.ts", "prisma/seed.ts"],
   "exclude": [
     "node_modules",
     "dist",
